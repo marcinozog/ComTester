@@ -183,7 +183,7 @@ namespace ComTester
                     endline = "\r\n";
 
                 float value = 0.1f * tbValue.Value;
-                string msg = tbLabel.Text + value.ToString() + endline;
+                string msg = tbLabel.Text + value.ToString("0.0") + endline;
                 port.Write(msg);
                 counter++;
                 lblCounter.Text = counter.ToString();

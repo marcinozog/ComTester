@@ -167,9 +167,9 @@
             // tbLabel
             // 
             tbLabel.Font = new Font("Segoe UI", 9F);
-            tbLabel.Location = new Point(124, 17);
+            tbLabel.Location = new Point(129, 14);
             tbLabel.Name = "tbLabel";
-            tbLabel.Size = new Size(342, 31);
+            tbLabel.Size = new Size(338, 31);
             tbLabel.TabIndex = 16;
             tbLabel.Text = "KOMResistance:";
             // 
@@ -234,7 +234,7 @@
             groupBox1.Controls.Add(rbCR);
             groupBox1.Controls.Add(rbSpace);
             groupBox1.ForeColor = SystemColors.HighlightText;
-            groupBox1.Location = new Point(379, 201);
+            groupBox1.Location = new Point(379, 205);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(171, 224);
             groupBox1.TabIndex = 22;
@@ -253,7 +253,7 @@
             // 
             // tbValue
             // 
-            tbValue.Location = new Point(119, 91);
+            tbValue.Location = new Point(120, 76);
             tbValue.Maximum = 1000;
             tbValue.Name = "tbValue";
             tbValue.Size = new Size(351, 69);
@@ -263,10 +263,11 @@
             // 
             // lblOutput
             // 
-            lblOutput.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblOutput.Location = new Point(10, 260);
+            lblOutput.BorderStyle = BorderStyle.Fixed3D;
+            lblOutput.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblOutput.Location = new Point(10, 236);
             lblOutput.Name = "lblOutput";
-            lblOutput.Size = new Size(273, 25);
+            lblOutput.Size = new Size(319, 34);
             lblOutput.TabIndex = 25;
             lblOutput.Text = "Dane wyjściowe";
             // 
@@ -277,7 +278,7 @@
             // 
             // tbTimer
             // 
-            tbTimer.Location = new Point(119, 142);
+            tbTimer.Location = new Point(120, 127);
             tbTimer.Minimum = 1;
             tbTimer.Name = "tbTimer";
             tbTimer.Size = new Size(351, 69);
@@ -289,7 +290,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label3.Location = new Point(10, 91);
+            label3.Location = new Point(10, 76);
             label3.Name = "label3";
             label3.Size = new Size(87, 25);
             label3.TabIndex = 27;
@@ -299,11 +300,11 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label5.Location = new Point(10, 142);
+            label5.Location = new Point(10, 127);
             label5.Name = "label5";
-            label5.Size = new Size(67, 25);
+            label5.Size = new Size(117, 25);
             label5.TabIndex = 28;
-            label5.Text = "Timer:";
+            label5.Text = "Na sekundę:";
             // 
             // panel1
             // 
@@ -330,7 +331,7 @@
             // 
             lblCounter.AutoSize = true;
             lblCounter.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCounter.Location = new Point(7, 400);
+            lblCounter.Location = new Point(10, 402);
             lblCounter.Name = "lblCounter";
             lblCounter.Size = new Size(70, 25);
             lblCounter.TabIndex = 32;
@@ -340,7 +341,7 @@
             // 
             lblTimer.AutoSize = true;
             lblTimer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblTimer.Location = new Point(488, 142);
+            lblTimer.Location = new Point(497, 127);
             lblTimer.Name = "lblTimer";
             lblTimer.Size = new Size(22, 25);
             lblTimer.TabIndex = 31;
@@ -350,7 +351,7 @@
             // 
             lblValue.AutoSize = true;
             lblValue.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblValue.Location = new Point(488, 96);
+            lblValue.Location = new Point(497, 76);
             lblValue.Name = "lblValue";
             lblValue.Size = new Size(22, 25);
             lblValue.TabIndex = 30;
