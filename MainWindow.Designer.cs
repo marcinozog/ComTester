@@ -38,12 +38,12 @@
             label1 = new Label();
             btnMinimize = new Button();
             label4 = new Label();
-            textBox1 = new TextBox();
-            rbNull = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
-            radioButton1 = new RadioButton();
+            tbLabel = new TextBox();
+            rbNone = new RadioButton();
+            rbSpace = new RadioButton();
+            rbLF = new RadioButton();
+            rbCR = new RadioButton();
+            rbCRLF = new RadioButton();
             groupBox1 = new GroupBox();
             label2 = new Label();
             tbValue = new TrackBar();
@@ -52,9 +52,15 @@
             tbTimer = new TrackBar();
             label3 = new Label();
             label5 = new Label();
+            panel1 = new Panel();
+            lblCounter = new Label();
+            lblTimer = new Label();
+            lblValue = new Label();
+            btnStart = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbValue).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbTimer).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnListCOM
@@ -156,78 +162,79 @@
             label4.Name = "label4";
             label4.Size = new Size(93, 25);
             label4.TabIndex = 15;
-            label4.Text = "Wersja 0.1";
+            label4.Text = "Wersja 0.2";
             // 
-            // textBox1
+            // tbLabel
             // 
-            textBox1.Location = new Point(309, 77);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(233, 31);
-            textBox1.TabIndex = 16;
-            textBox1.Text = "KOMResistance:";
+            tbLabel.Font = new Font("Segoe UI", 9F);
+            tbLabel.Location = new Point(124, 17);
+            tbLabel.Name = "tbLabel";
+            tbLabel.Size = new Size(342, 31);
+            tbLabel.TabIndex = 16;
+            tbLabel.Text = "KOMResistance:";
             // 
-            // rbNull
+            // rbNone
             // 
-            rbNull.AutoSize = true;
-            rbNull.Checked = true;
-            rbNull.Location = new Point(16, 36);
-            rbNull.Name = "rbNull";
-            rbNull.Size = new Size(72, 29);
-            rbNull.TabIndex = 17;
-            rbNull.TabStop = true;
-            rbNull.Text = "brak";
-            rbNull.UseVisualStyleBackColor = true;
+            rbNone.AutoSize = true;
+            rbNone.Checked = true;
+            rbNone.Location = new Point(16, 36);
+            rbNone.Name = "rbNone";
+            rbNone.Size = new Size(72, 29);
+            rbNone.TabIndex = 17;
+            rbNone.TabStop = true;
+            rbNone.Text = "brak";
+            rbNone.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbSpace
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(16, 71);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(86, 29);
-            radioButton2.TabIndex = 18;
-            radioButton2.Text = "spacja";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbSpace.AutoSize = true;
+            rbSpace.Location = new Point(16, 71);
+            rbSpace.Name = "rbSpace";
+            rbSpace.Size = new Size(86, 29);
+            rbSpace.TabIndex = 18;
+            rbSpace.Text = "spacja";
+            rbSpace.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbLF
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(16, 106);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(54, 29);
-            radioButton3.TabIndex = 19;
-            radioButton3.Text = "LF";
-            radioButton3.UseVisualStyleBackColor = true;
+            rbLF.AutoSize = true;
+            rbLF.Location = new Point(16, 106);
+            rbLF.Name = "rbLF";
+            rbLF.Size = new Size(54, 29);
+            rbLF.TabIndex = 19;
+            rbLF.Text = "LF";
+            rbLF.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbCR
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(16, 143);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(59, 29);
-            radioButton4.TabIndex = 20;
-            radioButton4.Text = "CR";
-            radioButton4.UseVisualStyleBackColor = true;
+            rbCR.AutoSize = true;
+            rbCR.Location = new Point(16, 143);
+            rbCR.Name = "rbCR";
+            rbCR.Size = new Size(59, 29);
+            rbCR.TabIndex = 20;
+            rbCR.Text = "CR";
+            rbCR.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbCRLF
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(16, 180);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(88, 29);
-            radioButton1.TabIndex = 21;
-            radioButton1.Text = "LR+CF";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbCRLF.AutoSize = true;
+            rbCRLF.Location = new Point(16, 180);
+            rbCRLF.Name = "rbCRLF";
+            rbCRLF.Size = new Size(83, 29);
+            rbCRLF.TabIndex = 21;
+            rbCRLF.Text = "CR-LF";
+            rbCRLF.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             groupBox1.BackColor = SystemColors.Desktop;
-            groupBox1.Controls.Add(rbNull);
-            groupBox1.Controls.Add(radioButton3);
-            groupBox1.Controls.Add(radioButton1);
-            groupBox1.Controls.Add(radioButton4);
-            groupBox1.Controls.Add(radioButton2);
+            groupBox1.Controls.Add(rbNone);
+            groupBox1.Controls.Add(rbLF);
+            groupBox1.Controls.Add(rbCRLF);
+            groupBox1.Controls.Add(rbCR);
+            groupBox1.Controls.Add(rbSpace);
             groupBox1.ForeColor = SystemColors.HighlightText;
-            groupBox1.Location = new Point(616, 77);
+            groupBox1.Location = new Point(379, 201);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(171, 224);
             groupBox1.TabIndex = 22;
@@ -238,7 +245,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(239, 77);
+            label2.Location = new Point(10, 17);
             label2.Name = "label2";
             label2.Size = new Size(61, 25);
             label2.TabIndex = 23;
@@ -246,35 +253,43 @@
             // 
             // tbValue
             // 
-            tbValue.Location = new Point(436, 333);
+            tbValue.Location = new Point(119, 91);
+            tbValue.Maximum = 1000;
             tbValue.Name = "tbValue";
             tbValue.Size = new Size(351, 69);
             tbValue.TabIndex = 24;
+            tbValue.Value = 1;
+            tbValue.Scroll += tbValue_Scroll;
             // 
             // lblOutput
             // 
-            lblOutput.AutoSize = true;
-            lblOutput.Location = new Point(11, 429);
+            lblOutput.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblOutput.Location = new Point(10, 260);
             lblOutput.Name = "lblOutput";
-            lblOutput.Size = new Size(137, 25);
+            lblOutput.Size = new Size(273, 25);
             lblOutput.TabIndex = 25;
             lblOutput.Text = "Dane wyjściowe";
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // tbTimer
             // 
-            tbTimer.Location = new Point(436, 408);
-            tbTimer.Maximum = 5;
+            tbTimer.Location = new Point(119, 142);
             tbTimer.Minimum = 1;
             tbTimer.Name = "tbTimer";
             tbTimer.Size = new Size(351, 69);
             tbTimer.TabIndex = 26;
             tbTimer.Value = 1;
+            tbTimer.Scroll += tbTimer_Scroll;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label3.Location = new Point(239, 333);
+            label3.Location = new Point(10, 91);
             label3.Name = "label3";
             label3.Size = new Size(87, 25);
             label3.TabIndex = 27;
@@ -284,11 +299,75 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label5.Location = new Point(239, 408);
+            label5.Location = new Point(10, 142);
             label5.Name = "label5";
             label5.Size = new Size(67, 25);
             label5.TabIndex = 28;
             label5.Text = "Timer:";
+            // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblCounter);
+            panel1.Controls.Add(lblTimer);
+            panel1.Controls.Add(lblValue);
+            panel1.Controls.Add(btnStart);
+            panel1.Controls.Add(lblOutput);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(tbLabel);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(groupBox1);
+            panel1.Controls.Add(tbTimer);
+            panel1.Controls.Add(tbValue);
+            panel1.Font = new Font("Segoe UI", 9F);
+            panel1.Location = new Point(223, 68);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(564, 442);
+            panel1.TabIndex = 29;
+            // 
+            // lblCounter
+            // 
+            lblCounter.AutoSize = true;
+            lblCounter.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCounter.Location = new Point(7, 400);
+            lblCounter.Name = "lblCounter";
+            lblCounter.Size = new Size(70, 25);
+            lblCounter.TabIndex = 32;
+            lblCounter.Text = "Licznik";
+            // 
+            // lblTimer
+            // 
+            lblTimer.AutoSize = true;
+            lblTimer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblTimer.Location = new Point(488, 142);
+            lblTimer.Name = "lblTimer";
+            lblTimer.Size = new Size(22, 25);
+            lblTimer.TabIndex = 31;
+            lblTimer.Text = "1";
+            // 
+            // lblValue
+            // 
+            lblValue.AutoSize = true;
+            lblValue.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblValue.Location = new Point(488, 96);
+            lblValue.Name = "lblValue";
+            lblValue.Size = new Size(22, 25);
+            lblValue.TabIndex = 30;
+            lblValue.Text = "1";
+            // 
+            // btnStart
+            // 
+            btnStart.BackColor = Color.LightGreen;
+            btnStart.Enabled = false;
+            btnStart.ForeColor = SystemColors.Desktop;
+            btnStart.Location = new Point(10, 344);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(112, 44);
+            btnStart.TabIndex = 29;
+            btnStart.Text = "Start";
+            btnStart.UseVisualStyleBackColor = false;
+            btnStart.Click += btnStart_Click;
             // 
             // MainWindow
             // 
@@ -296,14 +375,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(800, 525);
-            Controls.Add(label5);
-            Controls.Add(label3);
-            Controls.Add(tbTimer);
-            Controls.Add(lblOutput);
-            Controls.Add(tbValue);
-            Controls.Add(label2);
-            Controls.Add(groupBox1);
-            Controls.Add(textBox1);
+            Controls.Add(panel1);
             Controls.Add(label4);
             Controls.Add(btnMinimize);
             Controls.Add(label1);
@@ -326,6 +398,8 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tbValue).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbTimer).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -341,12 +415,12 @@
         private Label label1;
         private Button btnMinimize;
         private Label label4;
-        private TextBox textBox1;
-        private RadioButton rbNull;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton1;
+        private TextBox tbLabel;
+        private RadioButton rbNone;
+        private RadioButton rbSpace;
+        private RadioButton rbLF;
+        private RadioButton rbCR;
+        private RadioButton rbCRLF;
         private GroupBox groupBox1;
         private Label label2;
         private TrackBar tbValue;
@@ -355,5 +429,10 @@
         private TrackBar tbTimer;
         private Label label3;
         private Label label5;
+        private Panel panel1;
+        private Button btnStart;
+        private Label lblTimer;
+        private Label lblValue;
+        private Label lblCounter;
     }
 }

@@ -8,8 +8,10 @@ namespace ComTester
     {
         SerialPort port;
         String port_name;
-        bool connected = false;
-        Thread readComThread;
+        bool bConnected = false;
+
+        bool bSending = false;
+        int counter = 0;
 
         /*
          * Move window section
@@ -17,17 +19,6 @@ namespace ComTester
         bool bMouseDown = false;
         Point mousePosDown = Point.Empty;
         Point currentFormLocation = Point.Empty;
-
-        /*
-         * Alarm section
-         */
-        bool bAlarmEnable = false;
-        //string sAlarmLabel = "";
-        float fAlarmValue = 0.0f;
-        float fAlarmOverValue = 0.0f;
-        float fAlarmUnderValue = 0.0f;
-        Thread alarmSoundThread;
-        bool bBeepPlaying = false;
 
         public MainWindow()
         {
@@ -42,7 +33,7 @@ namespace ComTester
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            if (!connected)
+            if (!bConnected)
             {
                 try
                 {
@@ -50,15 +41,14 @@ namespace ComTester
                     int baudrate = int.Parse(txtBaudRate.Text);
                     port = new SerialPort(port_name, baudrate, Parity.None, 8, StopBits.One);
                     port.Open();
-                    connected = true;
+                    bConnected = true;
                     btnConnect.Text = "Rozłącz " + port_name;
                     btnConnect.BackColor = Color.LightCoral;
 
                     lbCOMs.Enabled = false;
                     txtBaudRate.Enabled = false;
 
-                    readComThread = new Thread(new ThreadStart(ReadCOMThread));
-                    readComThread.Start();
+                    btnStart.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -68,51 +58,24 @@ namespace ComTester
             else
             {
                 port.Close();
-                connected = false;
+                bConnected = false;
                 btnConnect.Text = "Połącz";
                 btnConnect.BackColor = Color.LightGreen;
 
                 lbCOMs.Enabled = true;
                 txtBaudRate.Enabled = true;
 
-                readComThread.Interrupt();
+                StopSending();
             }
 
-        }
-
-        void ReadCOMThread()
-        {
-            String buff = "";
-            while (connected)
-            {
-                //if (txtOutput.InvokeRequired)
-                //{
-                try
-                {
-                    char c = (char)port.ReadChar();
-                    buff += c;
-
-                    if (c == ' ')
-                    {
-                        // label, value, suffix
-                        buff = "";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show(ex.ToString());
-                }
-                //}
-            }
         }
 
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (connected)
+            if (bConnected)
             {
                 port.Close();
-                connected = false;
-                readComThread.Interrupt();
+                bConnected = false;
             }
         }
 
@@ -168,6 +131,73 @@ namespace ComTester
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        /*
+         * 
+         * Sending section
+         * 
+         */
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            if (!bSending)
+            {
+                bSending = true;
+                btnStart.Text = "Stop";
+                btnStart.BackColor = Color.LightCoral;
+                timer1.Start();
+                counter = 0;
+            }
+            else
+            {
+                StopSending();
+            }
+        }
+
+        private void tbValue_Scroll(object sender, EventArgs e)
+        {
+            float value = 0.1f * tbValue.Value;
+            lblValue.Text = value.ToString("0.0");
+        }
+
+        private void tbTimer_Scroll(object sender, EventArgs e)
+        {
+            lblTimer.Text = tbTimer.Value.ToString();
+            timer1.Stop();
+            timer1.Interval = 1000/tbTimer.Value;
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(bConnected && bSending)
+            {
+                string endline = "";
+                if (rbSpace.Checked)
+                    endline = " ";
+                else if (rbLF.Checked)
+                    endline = "\n";
+                else if (rbCR.Checked)
+                    endline = "\r";
+                else if (rbCRLF.Checked)
+                    endline = "\r\n";
+
+                float value = 0.1f * tbValue.Value;
+                string msg = tbLabel.Text + value.ToString() + endline;
+                port.Write(msg);
+                counter++;
+                lblCounter.Text = counter.ToString();
+
+                lblOutput.Text = msg;
+            }
+        }
+
+        void StopSending()
+        {
+            bSending = false;
+            btnStart.Text = "Start";
+            btnStart.BackColor = Color.LightGreen;
+            timer1.Stop();
         }
     }
 }
