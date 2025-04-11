@@ -65,6 +65,7 @@ namespace ComTester
                 lbCOMs.Enabled = true;
                 txtBaudRate.Enabled = true;
 
+                btnStart.Enabled = false;
                 StopSending();
             }
 
@@ -93,9 +94,9 @@ namespace ComTester
                 lbCOMs.SelectedIndex = 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCloseForm_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         /*
@@ -164,13 +165,13 @@ namespace ComTester
         {
             lblTimer.Text = tbTimer.Value.ToString();
             timer1.Stop();
-            timer1.Interval = 1000/tbTimer.Value;
+            timer1.Interval = 1000 / tbTimer.Value;
             timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(bConnected && bSending)
+            if (bConnected && bSending)
             {
                 string endline = "";
                 if (rbSpace.Checked)
@@ -183,7 +184,7 @@ namespace ComTester
                     endline = "\r\n";
 
                 float value = 0.1f * tbValue.Value;
-                string msg = tbLabel.Text + value.ToString("0.0") + endline;
+                string msg = cbLabels.Text + value.ToString("0.0") + endline;
                 port.Write(msg);
                 counter++;
                 lblCounter.Text = counter.ToString();

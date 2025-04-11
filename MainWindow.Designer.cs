@@ -34,11 +34,10 @@
             btnConnect = new Button();
             lblBaudRate = new Label();
             txtBaudRate = new TextBox();
-            button1 = new Button();
+            btnCloseForm = new Button();
             label1 = new Label();
             btnMinimize = new Button();
             label4 = new Label();
-            tbLabel = new TextBox();
             rbNone = new RadioButton();
             rbSpace = new RadioButton();
             rbLF = new RadioButton();
@@ -53,6 +52,8 @@
             label3 = new Label();
             label5 = new Label();
             panel1 = new Panel();
+            label6 = new Label();
+            cbLabels = new ComboBox();
             lblCounter = new Label();
             lblTimer = new Label();
             lblValue = new Label();
@@ -116,18 +117,18 @@
             txtBaudRate.Text = "115200";
             txtBaudRate.TextAlign = HorizontalAlignment.Center;
             // 
-            // button1
+            // btnCloseForm
             // 
-            button1.BackColor = Color.Brown;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button1.ForeColor = SystemColors.HighlightText;
-            button1.Location = new Point(736, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(51, 48);
-            button1.TabIndex = 11;
-            button1.Text = "X";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnCloseForm.BackColor = Color.Brown;
+            btnCloseForm.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCloseForm.ForeColor = SystemColors.HighlightText;
+            btnCloseForm.Location = new Point(736, 12);
+            btnCloseForm.Name = "btnCloseForm";
+            btnCloseForm.Size = new Size(51, 48);
+            btnCloseForm.TabIndex = 11;
+            btnCloseForm.Text = "X";
+            btnCloseForm.UseVisualStyleBackColor = false;
+            btnCloseForm.Click += btnCloseForm_Click;
             // 
             // label1
             // 
@@ -163,15 +164,6 @@
             label4.Size = new Size(93, 25);
             label4.TabIndex = 15;
             label4.Text = "Wersja 0.2";
-            // 
-            // tbLabel
-            // 
-            tbLabel.Font = new Font("Segoe UI", 9F);
-            tbLabel.Location = new Point(129, 14);
-            tbLabel.Name = "tbLabel";
-            tbLabel.Size = new Size(338, 31);
-            tbLabel.TabIndex = 16;
-            tbLabel.Text = "KOMResistance:";
             // 
             // rbNone
             // 
@@ -264,12 +256,13 @@
             // lblOutput
             // 
             lblOutput.BorderStyle = BorderStyle.Fixed3D;
-            lblOutput.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblOutput.Location = new Point(10, 236);
+            lblOutput.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblOutput.Location = new Point(10, 216);
             lblOutput.Name = "lblOutput";
-            lblOutput.Size = new Size(319, 34);
+            lblOutput.Size = new Size(323, 54);
             lblOutput.TabIndex = 25;
             lblOutput.Text = "Dane wyjściowe";
+            lblOutput.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // timer1
             // 
@@ -309,6 +302,8 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(cbLabels);
             panel1.Controls.Add(lblCounter);
             panel1.Controls.Add(lblTimer);
             panel1.Controls.Add(lblValue);
@@ -316,7 +311,6 @@
             panel1.Controls.Add(lblOutput);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(tbLabel);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(tbTimer);
@@ -327,11 +321,30 @@
             panel1.Size = new Size(564, 442);
             panel1.TabIndex = 29;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label6.Location = new Point(10, 404);
+            label6.Name = "label6";
+            label6.Size = new Size(91, 25);
+            label6.TabIndex = 34;
+            label6.Text = "Wysłano:";
+            // 
+            // cbLabels
+            // 
+            cbLabels.FormattingEnabled = true;
+            cbLabels.Items.AddRange(new object[] { "Electricity:", "AElectricity:", "mAElectricity:", "MOMResistance:", "KOMResistance:", "OMResistance:", "OMbeep:", "VDiode:", "VDiode:", "nFCap:", "uFCap:", "mFCap:", "VVoltage:" });
+            cbLabels.Location = new Point(133, 17);
+            cbLabels.Name = "cbLabels";
+            cbLabels.Size = new Size(321, 33);
+            cbLabels.TabIndex = 33;
+            // 
             // lblCounter
             // 
             lblCounter.AutoSize = true;
             lblCounter.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCounter.Location = new Point(10, 402);
+            lblCounter.Location = new Point(101, 404);
             lblCounter.Name = "lblCounter";
             lblCounter.Size = new Size(70, 25);
             lblCounter.TabIndex = 32;
@@ -364,7 +377,7 @@
             btnStart.ForeColor = SystemColors.Desktop;
             btnStart.Location = new Point(10, 344);
             btnStart.Name = "btnStart";
-            btnStart.Size = new Size(112, 44);
+            btnStart.Size = new Size(161, 44);
             btnStart.TabIndex = 29;
             btnStart.Text = "Start";
             btnStart.UseVisualStyleBackColor = false;
@@ -380,7 +393,7 @@
             Controls.Add(label4);
             Controls.Add(btnMinimize);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(btnCloseForm);
             Controls.Add(txtBaudRate);
             Controls.Add(lblBaudRate);
             Controls.Add(btnConnect);
@@ -412,11 +425,10 @@
         private Button btnConnect;
         private Label lblBaudRate;
         private TextBox txtBaudRate;
-        private Button button1;
+        private Button btnCloseForm;
         private Label label1;
         private Button btnMinimize;
         private Label label4;
-        private TextBox tbLabel;
         private RadioButton rbNone;
         private RadioButton rbSpace;
         private RadioButton rbLF;
@@ -435,5 +447,7 @@
         private Label lblTimer;
         private Label lblValue;
         private Label lblCounter;
+        private ComboBox cbLabels;
+        private Label label6;
     }
 }
