@@ -23,6 +23,7 @@ namespace ComTester
         public MainWindow()
         {
             InitializeComponent();
+            this.Location = new Point(Properties.Settings.Default.main_form_pos_x, Properties.Settings.Default.main_form_pos_y);
             refreshCOMlist();
         }
 
@@ -78,6 +79,10 @@ namespace ComTester
                 port.Close();
                 bConnected = false;
             }
+
+            Properties.Settings.Default.main_form_pos_x = this.Location.X;
+            Properties.Settings.Default.main_form_pos_y = this.Location.Y;
+            Properties.Settings.Default.Save();
         }
 
         void refreshCOMlist()

@@ -22,5 +22,29 @@ namespace ComTester.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int main_form_pos_x {
+            get {
+                return ((int)(this["main_form_pos_x"]));
+            }
+            set {
+                this["main_form_pos_x"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int main_form_pos_y {
+            get {
+                return ((int)(this["main_form_pos_y"]));
+            }
+            set {
+                this["main_form_pos_y"] = value;
+            }
+        }
     }
 }

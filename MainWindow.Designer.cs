@@ -403,6 +403,7 @@
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "MainWindow";
+            StartPosition = FormStartPosition.Manual;
             Text = "ZOYI Terminal";
             FormClosed += MainWindow_FormClosed;
             MouseDown += MainWindow_MouseDown;
