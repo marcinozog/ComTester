@@ -58,10 +58,12 @@
             lblTimer = new Label();
             lblValue = new Label();
             btnStart = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tbValue).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbTimer).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnListCOM
@@ -134,7 +136,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(307, 12);
+            label1.Location = new Point(307, 23);
             label1.Name = "label1";
             label1.Size = new Size(123, 30);
             label1.TabIndex = 12;
@@ -383,12 +385,23 @@
             btnStart.UseVisualStyleBackColor = false;
             btnStart.Click += btnStart_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(11, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 48);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 30;
+            pictureBox1.TabStop = false;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(800, 525);
+            Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(label4);
             Controls.Add(btnMinimize);
@@ -415,6 +428,7 @@
             ((System.ComponentModel.ISupportInitialize)tbTimer).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -450,5 +464,6 @@
         private Label lblCounter;
         private ComboBox cbLabels;
         private Label label6;
+        private PictureBox pictureBox1;
     }
 }
